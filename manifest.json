@@ -1,0 +1,21 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html",
+      "default_title": "Willow"
+   },
+   "description": "跨操作系统平台的前端调试利器——映射线上资源到本地，支持目录映射。",
+   "icons": {
+      "16": "icon.png",
+      "48": "icon48.png"
+   },
+   "manifest_version": 2,
+   "name": "Willow",
+   "permissions": [ "tabs", "webRequest", "webRequestBlocking", "<all_urls>", "unlimitedStorage" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.0.6"
+}

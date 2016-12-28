@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html ng-app="willow">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/popup.css"/>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+</head>
+<body ng-controller="mapListCtrl">
+<div class="container">
+<div class="btnBox">
+    <button tabIndex="-1" style="display:{{addDisplay}};" ng-click="addRule()" class="add">添加规则</button>
+    <a href="https://github.com/kainy/Willow" target="_blank" class="link" title="点下又不会怀孕">使用说明</a>
+    <span style="display:{{editDisplay}};">
+        <button ng-click="saveRule()">保存规则</button>
+        <button class="close" aria-hidden="true" ng-click="hideEditBox()">取消</button>
+    </span>
+</div>
+
+<div style="display:{{editDisplay}};" class="editBox">
+    
+    <div class="errorMsg">{{inputError}}</div>
+    <div class="form-group">
+        <label for="req">线上目录:</label>
+        <input type="text" class="form-control" id="req" ng-model="curRule.req"/>
+    </div>
+    <div class="form-group">
+        <label for="res">开发目录:</label>
+        <input type="text" class="form-control" id="res" ng-model="curRule.res"/>
+    </div>
+
+</div>
+<table class="table table-hover">
+    <tr ng-repeat="rule in maps track by $index">
+        <td>
+            <label title="Responese: {{rule.res}}"><input type="checkbox" ng-model="rule.checked"/> {{rule.req}}</label>
+            <button ng-click="edit(rule)" type="button" class="edit">编辑</button>
+            <button ng-click="removeUrl(rule)" type="button" class="btn btn-default btn-xs remove">删除</button>
+        </td>
+    </tr>
+</table>
+
+</div>
+</body>
+</html>
